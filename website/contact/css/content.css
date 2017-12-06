@@ -1,106 +1,93 @@
 
-.contact-us-section {
-  padding: 2rem;
-  background: #fefefe;
+@import "compass/css3";
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather);
+$red: #e74c3c;
+
+*,
+*:before,
+*:after {
+   @include box-sizing(border-box);
 }
 
-.contact-us-section .contact-us-section-left {
-  padding-right: 2rem;
-  border-bottom: 2px solid #e6e6e6;
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
+html, body {
+  background: #f1f1f1;
+  font-family: 'Merriweather', sans-serif;
+  padding: 1em;
 }
 
-@media print, screen and (min-width: 40em) {
-  .contact-us-section .contact-us-section-left {
-    border-right: 1px solid #e6e6e6;
-    border-bottom: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
+h1 {
+   text-align: center;
+   color: #a8a8a8;
+   @include text-shadow(1px 1px 0 rgba(white, 1));
+}
+
+form {
+   max-width: 600px;
+   text-align: center;
+   margin: 20px auto;
+
+  input, textarea {
+     border:0; outline:0;
+     padding: 1em;
+     @include border-radius(8px);
+     display: block;
+     width: 100%;
+     margin-top: 1em;
+     font-family: 'Merriweather', sans-serif;
+     @include box-shadow(0 1px 1px rgba(black, 0.1));
+     resize: none;
+
+    &:focus {
+       @include box-shadow(0 0px 2px rgba($red, 1)!important);
+    }
+  }
+
+  #input-submit {
+     color: white;
+     background: $red;
+     cursor: pointer;
+
+    &:hover {
+       @include box-shadow(0 1px 1px 1px rgba(#aaa, 0.6));
+    }
+  }
+
+  textarea {
+      height: 126px;
   }
 }
 
-.contact-us-section .contact-us-section-right {
-  padding-left: 2rem;
+
+.half {
+  float: left;
+  width: 48%;
+  margin-bottom: 1em;
 }
 
-@media print, screen and (min-width: 40em) {
-  .contact-us-section .contact-us-section-right {
-    border-left: 1px solid #e6e6e6;
+.right { width: 50%; }
+
+.left {
+     margin-right: 2%;
+}
+
+
+@media (max-width: 480px) {
+  .half {
+     width: 100%;
+     float: none;
+     margin-bottom: 0;
   }
 }
 
-.contact-us-section .contact-us-header {
-  margin-bottom: 2rem;
+
+/* Clearfix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
 
-@media screen and (min-width: 40em) and (max-width: 74.9375em) {
-  .contact-us-section .contact-us-header {
-    font-size: 32px;
-  }
-}
-
-.contact-us-section .responsive-embed {
-  margin-bottom: 0;
-  padding-bottom: 55%;
-}
-
-.contact-us-form input[type=text],
-.contact-us-form input[type=email],
-.contact-us-form textarea {
-  margin-bottom: 1.5rem;
-}
-
-.contact-us-form-actions {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.contact-us-form-actions input[type=submit] {
-  border-radius: 5000px;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.contact-us-form-actions .contact-us-file-button {
-  background: transparent;
-  color: #8a8a8a;
-}
-
-.contact-us-list {
-  list-style-type: none;
-  margin: 0;
-}
-
-.contact-us-list li a {
-  color: #0a0a0a;
-}
-
-.contact-us-list li::before {
-  margin-right: 2rem;
-  font-size: 2rem;
-  vertical-align: middle;
-  color: #8a8a8a;
-  font-family: 'FontAwesome';
-}
-
-.contact-us-list .address::before {
-  content: '\f041';
-  margin-left: 0.4rem;
-  margin-right: 2.3rem;
-}
-
-.contact-us-list .email::before {
-  content: '\f003';
-}
-
-.contact-us-list .phone::before {
-  content: '\f098';
+.cf:after {
+    clear: both;
 }
